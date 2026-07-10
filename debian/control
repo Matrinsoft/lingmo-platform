@@ -9,7 +9,7 @@ Build-Depends:
     qt6-base-dev (>= 6.5),
     qt6-base-dev, libkf6windowystem-dev,
 Standards-Version: 4.6.2
-Homepage: https://github.com/lingmo-os/lingmo-platform
+Homepage: https://github.com/Matrinsoft/lingmo-platform
 Rules-Requires-Root: no
 
 Package: liblingmo-platform1
