@@ -1,4 +1,4 @@
-set(CMAKE_CXX_STANDARD 20)
+﻿set(CMAKE_CXX_STANDARD 20)
 
 find_package(KF5CoreAddons)
 find_package(KF5Config)
@@ -42,12 +42,12 @@ target_include_directories(roundedwindow PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(roundedwindow
     PUBLIC
-        Qt5::Core
-        Qt5::Gui
+        Qt6::Core
+        Qt6::Gui
     PRIVATE
-        KF5::CoreAddons
-        KF5::ConfigCore
-        KF5::WindowSystem
+        KF6::CoreAddons
+        KF6::ConfigCore
+        KF6::WindowSystem
 )
 
 install (TARGETS roundedwindow DESTINATION ${QT_PLUGINS_DIR}/kwin/effects/plugins)
