@@ -1,36 +1,36 @@
-﻿set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 20)
 
-find_package(KF5CoreAddons)
-find_package(KF5Config)
-find_package(KF5WindowSystem)
+find_package(KF6CoreAddons REQUIRED)
+find_package(KF6Config REQUIRED)
+find_package(KF6WindowSystem REQUIRED)
 
-find_path(EFFECTS_H kwineffects.h PATH_SUFFIXES kf5)
+find_path(EFFECTS_H kwineffects.h PATH_SUFFIXES kf6)
 
 if (EFFECTS_H)
     include_directories(${EFFECTS_H})
-else (EFFECTS_H)
+else()
     message(STATUS "didnt find kwineffects.h, not building effects")
-endif (EFFECTS_H)
+endif()
 
-find_library(KWIN_EFFECTS NAMES kwineffects PATH_SUFFIXES kf5)
-find_library(KWIN_GLUTILS NAMES kwinglutils PATH_SUFFIXES kf5)
+find_library(KWIN_EFFECTS NAMES kwineffects PATH_SUFFIXES kf6)
+find_library(KWIN_GLUTILS NAMES kwinglutils PATH_SUFFIXES kf6)
 find_library(OPENGL NAMES GL)
 
 if (NOT KWIN_EFFECTS)
     message(STATUS "didnt find kwineffects lib, not building effects")
-endif (NOT KWIN_EFFECTS)
+endif()
 
 if (NOT KWIN_GLUTILS)
     message(STATUS "didnt find kwin glutils lib, not building effects")
-endif (NOT KWIN_GLUTILS)
+endif()
 
 if (NOT OPENGL)
     message(STATUS "didnt find opengl, not building effects")
-endif (NOT OPENGL)
+endif()
 
 if (NOT EFFECTS_H OR NOT KWIN_GLUTILS OR NOT KWIN_EFFECTS OR NOT OPENGL)
     message(FATAL_ERROR "cant continue")
-endif (NOT EFFECTS_H OR NOT KWIN_GLUTILS OR NOT KWIN_EFFECTS OR NOT OPENGL)
+endif()
 
 add_library(roundedwindow MODULE
     main.cpp
