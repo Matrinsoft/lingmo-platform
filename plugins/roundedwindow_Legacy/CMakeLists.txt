@@ -1,8 +1,12 @@
 set(CMAKE_CXX_STANDARD 20)
 
-find_package(KF6CoreAddons REQUIRED)
-find_package(KF6Config REQUIRED)
-find_package(KF6WindowSystem REQUIRED)
+find_package(KF6CoreAddons QUIET)
+find_package(KF6Config QUIET)
+find_package(KF6WindowSystem QUIET)
+if(NOT KF6WindowSystem_FOUND)
+    message(STATUS "KF6WindowSystem not found, skipping roundedwindow")
+    return()
+endif()
 
 find_path(EFFECTS_H kwineffects.h PATH_SUFFIXES kf6)
 
